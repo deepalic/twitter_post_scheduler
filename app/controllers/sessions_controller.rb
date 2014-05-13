@@ -3,9 +3,8 @@ class SessionsController < ApplicationController
   def create
     auth_hash = request.env['omniauth.auth']
     user_hash = generate_user_hash(auth_hash)
-    # @user = User.find_or_create_from_auth_hash(auth_hash)
-    # self.current_user = @user
-    redirect_to root_path
+    @user = User.find_or_create_from_user_hash(user_hash)
+    redirect_to twitter_schedulers_path
   end
 
   def generate_user_hash(auth_hash)
@@ -15,9 +14,7 @@ class SessionsController < ApplicationController
       profile_image: "#{auth_hash.info.image}",
       url: "#{auth_hash.info.urls.Twitter}",
       auth_token: "#{auth_hash.extra.access_token.token}",
-      auth_secret: "#{auth_hash.extra.access_token.secret}",
-      consumer_key: "#{auth_hash.extra.access_token.consumer.key}",
-      consumer_secret: "#{auth_hash.extra.access_token.consumer.secret}"
+      auth_secret: "#{auth_hash.extra.access_token.secret}"
     }
   end
 end
