@@ -36,6 +36,8 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'rest-client'
+gem 'launchy'
+gem 'factory_girl_rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
