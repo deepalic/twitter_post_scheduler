@@ -40,4 +40,25 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include Capybara::DSL
+
+  OmniAuth.config.test_mode = true
+  OmniAuth.config.mock_auth[:twitter] = {'provider' => 'twitter',
+                                         'uid' => '123545',
+                                         'info' => {
+                                            'nickname' => "DeepaliChaudha1",
+                                            'name' => "Deepali Chaudhary",
+                                            'image' => "http://abs.twimg.com/sticky/default_profile_images/default_profile_3_normal.png",
+                                            'urls' => {"Twitter" => "https://twitter.com/DeepaliChaudha1"}
+                                          },
+                                         'extra' => {
+                                          "access_token" => {
+                                            "token" => "1243267070-fANkac4xM040NlLQtWZcLvybbINvyu8GgICKdBX",
+                                            "secret" => "MFl6NIUakfOMiD8iiEibpeeVHMRaR2CbO8XjE7GiKCVOi",
+                                            "consumer" => {
+                                              "key" => "APLSOAGWdBzZ62BGQGRXaiWIq",
+                                              "secret" => "PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC"
+                                            }
+                                           }
+                                         }
+                                        }
 end
