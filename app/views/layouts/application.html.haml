@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+%html
+%head
+  %title BlogApplication
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+%body
+  .navbar.navbar-inverse.navbar-fixed-top{ 'role' => 'navigation'}
+    .container
+      .navbar-header
+        %a.navbar-brand{ href: '#'} BlogApplication
+      .collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li.active
+            = link_to 'Home', '#'
+  .container
+    .starter-template
+      = yield
