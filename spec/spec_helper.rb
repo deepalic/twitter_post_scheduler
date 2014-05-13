@@ -42,23 +42,19 @@ RSpec.configure do |config|
   config.include Capybara::DSL
 
   OmniAuth.config.test_mode = true
-  OmniAuth.config.mock_auth[:twitter] = {'provider' => 'twitter',
+  OmniAuth.config.mock_auth[:twitter] = OmniAuth::AuthHash.new({'provider' => 'twitter',
                                          'uid' => '123545',
-                                         'info' => {
+                                         'info' => OmniAuth::AuthHash.new( {
                                             'nickname' => "DeepaliChaudha1",
                                             'name' => "Deepali Chaudhary",
                                             'image' => "http://abs.twimg.com/sticky/default_profile_images/default_profile_3_normal.png",
-                                            'urls' => {"Twitter" => "https://twitter.com/DeepaliChaudha1"}
-                                          },
-                                         'extra' => {
-                                          "access_token" => {
+                                            'urls' => OmniAuth::AuthHash.new({"Twitter" => "https://twitter.com/DeepaliChaudha1"})
+                                          }),
+                                         'extra' => OmniAuth::AuthHash.new({
+                                          "access_token" => OmniAuth::AuthHash.new({
                                             "token" => "1243267070-fANkac4xM040NlLQtWZcLvybbINvyu8GgICKdBX",
-                                            "secret" => "MFl6NIUakfOMiD8iiEibpeeVHMRaR2CbO8XjE7GiKCVOi",
-                                            "consumer" => {
-                                              "key" => "APLSOAGWdBzZ62BGQGRXaiWIq",
-                                              "secret" => "PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC"
-                                            }
-                                           }
-                                         }
-                                        }
+                                            "secret" => "MFl6NIUakfOMiD8iiEibpeeVHMRaR2CbO8XjE7GiKCVOi"
+                                           })
+                                         })
+                                        })
 end
