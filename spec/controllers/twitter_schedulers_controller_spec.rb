@@ -27,16 +27,24 @@ describe TwitterSchedulersController do
 
   describe 'create action' do
     it 'should redirect to index template' do
-      post :create, { twitter_scheduler: { 'post_text' => 'dummypost',
+      post :create, twitter_scheduler: { 'post_text' => 'dummypost',
                                            'schedule_at' => '2014-05-13 16:42:33',
-                                           'user_id' => '2' } }
+                                           'user_id' => '2' }
       expect(response).to redirect_to(twitter_schedulers_path)
     end
 
     it 'should create new twitter scheduler' do
       expect do
-        post :create, { twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler) }
+        post :create, twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler)
       end.to change(TwitterScheduler, :count).by(1)
+    end
+  end
+
+  describe 'show action' do
+    it 'should render show template' do
+      @twitter_schedulers = FactoryGirl.create(:twitter_scheduler)
+      get :show, id: @twitter_schedulers.id
+      expect(response).to render_template(:show)
     end
   end
 end
