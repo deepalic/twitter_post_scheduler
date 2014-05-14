@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
+  delete '/signout' => 'sessions#destroy', :as => :signout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
