@@ -1,6 +1,6 @@
 # Twitter scheduler controller
 class TwitterSchedulersController < ApplicationController
-  before_filter :set_twitter_scheduler, only: [:show]
+  before_filter :set_twitter_scheduler, only: [:show, :edit, :update]
   def index
     @twitter_schedulers = TwitterScheduler.all
   end
@@ -19,6 +19,15 @@ class TwitterSchedulersController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @twitter_scheduler.update_attributes(twitter_scheduler_params)
+      redirect_to twitter_schedulers_path
+    end
   end
 
   private
