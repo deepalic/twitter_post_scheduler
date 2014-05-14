@@ -7,3 +7,11 @@ describe 'index action' do
     expect(page).to have_link 'add schedule'
   end
 end
+
+describe 'add schedule link' do
+  it 'should redirect to new twitter scheduler page' do
+    visit twitter_schedulers_path
+    click_link 'add schedule'
+    current_path == new_twitter_scheduler_path
+  end
+end
