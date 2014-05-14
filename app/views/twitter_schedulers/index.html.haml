@@ -1,10 +1,22 @@
-= link_to 'add schedule', new_twitter_scheduler_path
+= link_to 'Add Schedule', new_twitter_scheduler_path, class: 'btn btn-default'
 %table.table.table-striped
   %tr
     %th Post Text
     %th Schedule At
+    %th
+    %th
+    %th
   - @twitter_schedulers.each do |schedule|
     %tr
       %td= schedule.post_text
       %td= schedule.schedule_at
+      %td
+        = link_to schedule do
+          <i class='glyphicon glyphicon-th' title='show'></i>
+      %td
+        = link_to edit_twitter_scheduler_path(schedule) do
+          <i class='glyphicon glyphicon-pencil' title='Edit'></i>
+      %td
+        = link_to schedule, method: :delete, data: { confirm: 'Are You Sure?'} do
+          <i class='glyphicon glyphicon-trash' title='Delete'></i>
 
