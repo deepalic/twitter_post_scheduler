@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe TwitterSchedulersController do
+  # Spec for index action
   describe 'index action' do
     it 'respond successfully with http 200 code' do
       get :index
@@ -17,6 +18,7 @@ describe TwitterSchedulersController do
 
   end
 
+  # Spec for new action
   describe 'new action' do
     it 'should render new template' do
       get :new
@@ -25,6 +27,7 @@ describe TwitterSchedulersController do
     end
   end
 
+  # Spec for create action
   describe 'create action' do
     it 'should redirect to index template' do
       post :create, twitter_scheduler: { 'post_text' => 'dummypost',
@@ -40,11 +43,41 @@ describe TwitterSchedulersController do
     end
   end
 
+  # Spec for show action
   describe 'show action' do
     it 'should render show template' do
       @twitter_schedulers = FactoryGirl.create(:twitter_scheduler)
       get :show, id: @twitter_schedulers.id
       expect(response).to render_template(:show)
+    end
+  end
+
+  # Spec for edit action
+  describe 'edit action' do
+    it 'should render edit template' do
+      @twitter_schedulers = FactoryGirl.create(:twitter_scheduler)
+      get :edit, id: @twitter_schedulers.id
+      expect(response).to render_template(:edit)
+    end
+
+    it 'assigns the requested twitter scheduler as @twitter_scheduler' do
+      twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+      get :edit, id: twitter_scheduler.to_param
+      assigns(:twitter_scheduler).should eq(twitter_scheduler)
+    end
+  end
+
+  # Spec for update action
+  describe 'update action' do
+    it 'should update twitter scheduler' do
+      @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+      put :update, id: @twitter_scheduler, twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler)
+    end
+
+    it 'should redirect to index page after updation' do
+      @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+      put :update, id: @twitter_scheduler, twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler)
+      expect(response).to redirect_to(twitter_schedulers_path)
     end
   end
 end
