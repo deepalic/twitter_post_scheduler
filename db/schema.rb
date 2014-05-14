@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512121222) do
+ActiveRecord::Schema.define(version: 20140513102958) do
+
+  create_table "twitter_schedulers", force: true do |t|
+    t.text     "post_text"
+    t.datetime "schedule_at"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "u_id"
