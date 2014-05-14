@@ -1,2 +1,10 @@
-Hello
-= link_to 'add schedule', '#'
+= link_to 'add schedule', new_twitter_scheduler_path
+%table.table.table-striped
+  %tr
+    %th Post Text
+    %th Schedule At
+  - @twitter_schedulers.each do |schedule|
+    %tr
+      %td= schedule.post_text
+      %td= schedule.schedule_at
+
