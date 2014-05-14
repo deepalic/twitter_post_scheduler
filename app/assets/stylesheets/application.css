@@ -13,4 +13,5 @@
  *= require bootstrap
  *= require bootstrap-theme
  *= require custom
+ *= require jquery.datetimepicker
  */
