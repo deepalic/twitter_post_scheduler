@@ -18,6 +18,9 @@ class TwitterSchedulersController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def twitter_scheduler_params
