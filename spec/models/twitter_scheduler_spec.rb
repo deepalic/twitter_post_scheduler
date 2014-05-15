@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe TwitterScheduler do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should require post_text and schedule_at' do
+    @twitter_scheduler = { post_text: '', schedule_at: '' }
+    TwitterScheduler.new(@twitter_scheduler).should_not be_valid
+  end
 end
