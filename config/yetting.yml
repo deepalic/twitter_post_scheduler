@@ -1,0 +1,6 @@
+development:
+  consumer_key : 'APLSOAGWdBzZ62BGQGRXaiWIq'
+  consumer_secret: 'PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC'
+test:
+  consumer_key : 'APLSOAGWdBzZ62BGQGRXaiWIq'
+  consumer_secret: 'PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC'
