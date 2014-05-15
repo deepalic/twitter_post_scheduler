@@ -38,6 +38,8 @@ gem 'twitter'
 gem 'rest-client'
 gem 'launchy'
 gem 'factory_girl_rails'
+gem 'yettings'
+gem 'fakeweb', '~> 1.3', group: :test
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
