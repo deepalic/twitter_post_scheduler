@@ -80,4 +80,14 @@ describe TwitterSchedulersController do
       expect(response).to redirect_to(twitter_schedulers_path)
     end
   end
+
+  # Spec for delete action
+  describe 'delete action' do
+    it 'should delete twitter_scheduler' do
+      @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+      expect do
+        delete :destroy, id: @twitter_scheduler.id
+      end.to change(TwitterScheduler, :count).by(-1)
+    end
+  end
 end
