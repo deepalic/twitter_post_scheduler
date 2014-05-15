@@ -13,7 +13,7 @@ class TwitterSchedulersController < ApplicationController
     @twitter_scheduler = TwitterScheduler.new(twitter_scheduler_params)
     @twitter_scheduler.user_id = current_user.id
     if @twitter_scheduler.save
-      redirect_to twitter_schedulers_path
+      redirect_to @twitter_scheduler
     else
       render :new
     end
@@ -27,7 +27,7 @@ class TwitterSchedulersController < ApplicationController
 
   def update
     if @twitter_scheduler.update_attributes(twitter_scheduler_params)
-      redirect_to twitter_schedulers_path
+      redirect_to @twitter_scheduler
     end
   end
 
