@@ -1,3 +1,6 @@
 $(document).ready(function(){
-  $('#schedule_at').datetimepicker();
+  $('#twitter_scheduler_form').validationEngine();
+  $('#schedule_at').datetimepicker({
+    step: 5
+  });
 });
