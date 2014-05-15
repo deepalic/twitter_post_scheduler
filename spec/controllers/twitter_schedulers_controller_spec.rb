@@ -29,11 +29,11 @@ describe TwitterSchedulersController do
 
   # Spec for create action
   describe 'create action' do
-    it 'should redirect to index template' do
+    it 'should redirect to show template' do
       post :create, twitter_scheduler: { 'post_text' => 'dummypost',
-                                           'schedule_at' => '2014-05-13 16:42:33',
-                                           'user_id' => '2' }
-      expect(response).to redirect_to(twitter_schedulers_path)
+                                         'schedule_at' => '2014-05-13 16:42:33',
+                                         'user_id' => '2' }
+      expect(response).to redirect_to(TwitterScheduler.last)
     end
 
     it 'should create new twitter scheduler' do
@@ -74,10 +74,10 @@ describe TwitterSchedulersController do
       put :update, id: @twitter_scheduler, twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler)
     end
 
-    it 'should redirect to index page after updation' do
+    it 'should redirect to show page after updation' do
       @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
       put :update, id: @twitter_scheduler, twitter_scheduler: FactoryGirl.attributes_for(:twitter_scheduler)
-      expect(response).to redirect_to(twitter_schedulers_path)
+      expect(response).to redirect_to(TwitterScheduler.last)
     end
   end
 
