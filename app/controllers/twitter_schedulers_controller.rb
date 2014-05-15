@@ -11,6 +11,7 @@ class TwitterSchedulersController < ApplicationController
 
   def create
     @twitter_scheduler = TwitterScheduler.new(twitter_scheduler_params)
+    @twitter_scheduler.user_id = current_user.id
     if @twitter_scheduler.save
       redirect_to twitter_schedulers_path
     else
