@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require datetimepicker/jquery.datetimepicker
+//= require jquery.validationEngine-en
+//= require jquery.validationEngine
 //= require custom
