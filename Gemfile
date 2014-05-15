@@ -40,6 +40,7 @@ gem 'launchy'
 gem 'factory_girl_rails'
 gem 'yettings'
 gem 'fakeweb', '~> 1.3', group: :test
+gem 'whenever', :require => false
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
