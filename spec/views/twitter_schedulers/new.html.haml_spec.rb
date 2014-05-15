@@ -6,4 +6,9 @@ describe 'new action' do
     save_and_open_page
     expect(page).to have_link 'Add Schedule'
   end
+
+  it 'page should have back link' do
+    visit new_twitter_scheduler_path
+    expect(page).to have_link 'Back'
+  end
 end

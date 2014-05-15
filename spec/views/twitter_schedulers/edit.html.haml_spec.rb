@@ -23,4 +23,10 @@ describe 'edit action' do
     # then
     page.html.should include('Dummy Text post')
   end
+
+  it 'page should have back link' do
+    @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+    visit edit_twitter_scheduler_path(@twitter_scheduler)
+    expect(page).to have_link 'Back'
+  end
 end
