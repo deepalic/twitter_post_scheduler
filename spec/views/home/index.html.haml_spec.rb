@@ -23,3 +23,17 @@ describe 'click Sign In With Twitter link' do
     end
   end
 end
+
+describe 'after sign in with twitter' do
+  it 'should have sign out link' do
+    visit '/'
+    click_link 'Sign In With Twitter'
+    expect do
+      FakeWeb.register_uri(:get,
+                           'http://127.0.0.1:3000/auth/twitter',
+                           status: '200')
+    end
+    current_path = twitter_schedulers_path
+    expect(page).to have_link 'Sign Out'
+  end
+end
