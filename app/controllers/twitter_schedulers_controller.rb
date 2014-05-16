@@ -1,8 +1,11 @@
+require 'twitter'
 # Twitter scheduler controller
 class TwitterSchedulersController < ApplicationController
   before_filter :set_twitter_scheduler, only: [:show, :edit, :update, :destroy]
   def index
-    @twitter_schedulers = TwitterScheduler.all
+    @twitter_schedulers = current_user.twitter_schedulers
+    @client = build_client(current_user)
+    @tweets = @client.user_timeline("#{current_user.name}", count: 10)
   end
 
   def new
@@ -45,5 +48,15 @@ class TwitterSchedulersController < ApplicationController
 
   def set_twitter_scheduler
     @twitter_scheduler = TwitterScheduler.find(params[:id])
+  end
+
+  def build_client(user)
+    client = Twitter::REST::Client.new do |config|
+      config.consumer_key        = Yetting.consumer_key
+      config.consumer_secret     = Yetting.consumer_secret
+      config.access_token        = user.auth_token
+      config.access_token_secret = user.auth_secret
+    end
+    client
   end
 end
