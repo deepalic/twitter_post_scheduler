@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'fakeweb'
 
 describe 'index action' do
   it 'page should contain add schedule link' do
@@ -31,6 +32,34 @@ describe 'index action' do
     expect{
       page.first('a#delete_link').click
     }.to change(TwitterScheduler, :count).by(-1)
+  end
+
+  it 'should have Sign Out link' do
+    #given
+    visit '/'
+    click_link 'Sign In With Twitter'
+    expect do
+      FakeWeb.register_uri(:get,
+                           'http://127.0.0.1:3000/auth/twitter',
+                           status: '200')
+    end
+    #then
+    current_path = twitter_schedulers_path
+    expect(page).to have_link 'Sign Out'
+  end
+
+  it 'should redirect_to home page' do
+    #given
+    visit '/'
+    click_link 'Sign In With Twitter'
+    expect do
+      FakeWeb.register_uri(:get,
+                           'http://127.0.0.1:3000/auth/twitter',
+                           status: '200')
+    end
+    #then
+    click_link 'Sign Out'
+    current_path = root_path
   end
 end
 
