@@ -1,6 +1,0 @@
-development:
-  consumer_key : 'XXXXXXXXXXXXXXXXXXXX'
-  consumer_secret: 'XXXXXXXXXXXXXXXXXXXX'
-test:
-  consumer_key : 'XXXXXXXXXXXXXXXXXXXX'
-  consumer_secret: 'XXXXXXXXXXXXXXXXXXXX'
