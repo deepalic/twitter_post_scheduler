@@ -11,4 +11,12 @@ describe 'new action' do
     visit new_twitter_scheduler_path
     expect(page).to have_link 'Back'
   end
+
+  it 'click on back link page should redirect to index page' do
+    visit new_twitter_scheduler_path
+    expect(page).to have_link 'Back'
+    click_link 'Back'
+    current_path == twitter_schedulers_path
+  end
+
 end
