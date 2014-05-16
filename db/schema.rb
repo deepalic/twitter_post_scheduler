@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140513102958) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "twitter_schedulers", force: true do |t|
     t.text     "post_text"
     t.datetime "schedule_at"
