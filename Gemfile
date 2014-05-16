@@ -44,6 +44,7 @@ gem 'fakeweb', '~> 1.3', group: :test
 gem 'whenever', require: false
 
 gem 'state_machine'
+gem 'rails_autolink'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -55,4 +56,3 @@ gem 'state_machine'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
