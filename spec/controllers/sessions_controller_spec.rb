@@ -18,5 +18,29 @@ describe SessionsController do
         response.should redirect_to(twitter_schedulers_path)
       end
     end
+
+    it 'should successfully create session' do
+      session[:user_id].should be_nil
+      post :create, provider: :twitter
+      session[:user_id].should_not be_nil
+    end
+  end
+
+  describe 'destroy action' do
+    before do
+      request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:twitter]
+      post :create, provider: :twitter
+    end
+
+    it 'should clear the session' do
+      session[:user_id].should_not be_nil
+      delete :destroy
+      session[:user_id].should be_nil
+    end
+
+    it 'should redirect_to root path' do
+      delete :destroy
+      response.should redirect_to root_url
+    end
   end
 end
