@@ -43,7 +43,7 @@ gem 'yettings'
 gem 'fakeweb', '~> 1.3', group: :test
 gem 'whenever', require: false
 
-gem 'state_machine', '1.2.0'
+gem 'state_machine'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
