@@ -29,4 +29,12 @@ describe 'edit action' do
     visit edit_twitter_scheduler_path(@twitter_scheduler)
     expect(page).to have_link 'Back'
   end
+
+  it 'click on back link page should redirect to index page' do
+    @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
+    visit edit_twitter_scheduler_path(@twitter_scheduler)
+    expect(page).to have_link 'Back'
+    click_link 'Back'
+    current_path == twitter_schedulers_path
+  end
 end
