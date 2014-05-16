@@ -11,12 +11,12 @@
       %td= schedule.post_text
       %td= schedule.schedule_at
       %td
-        = link_to schedule do
+        = link_to schedule, id: 'show_link' do
           <i class='glyphicon glyphicon-th' title='show'></i>
       %td
-        = link_to edit_twitter_scheduler_path(schedule) do
+        = link_to edit_twitter_scheduler_path(schedule), id: 'edit_link' do
           <i class='glyphicon glyphicon-pencil' title='Edit'></i>
       %td
-        = link_to schedule, method: :delete, data: { confirm: 'Are You Sure?'} do
+        = link_to schedule, id: 'delete_link', method: :delete, data: { confirm: 'Are You Sure?'} do
           <i class='glyphicon glyphicon-trash' title='Delete'></i>
 
