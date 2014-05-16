@@ -45,4 +45,4 @@
               = auto_link(tweet.text, html: { target: '_blank' })
               %br/
               .tweet-details
-                = tweet.created_at
+                = distance_of_time_in_words(tweet.created_at, Time.now)
