@@ -1,3 +1,11 @@
 body{
   margin-top: 5%;
 }
+
+.content-div{
+  padding: 2%;
+}
+
+.tweet-details{
+  float: right;
+}
