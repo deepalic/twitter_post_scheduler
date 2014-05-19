@@ -12,8 +12,11 @@
         %a.navbar-brand{ href: '/'} BlogApplication
       .collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li.active
+          %li
             = link_to 'Home', '/'
+          - if current_user
+            %li
+              = link_to 'Schedule Tweet', twitter_schedulers_path
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             %li.active
@@ -24,3 +27,8 @@
   .container
     .starter-template
       = yield
+#footer
+  .container
+    %p
+      &copy;
+      %a{href: "http://www.cuberoot.in"}Cube Root Software
