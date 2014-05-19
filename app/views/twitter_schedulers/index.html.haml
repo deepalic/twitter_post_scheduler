@@ -17,8 +17,9 @@
             = link_to schedule, id: 'show_link' do
               <i class='glyphicon glyphicon-th' title='show'></i>
           %td
-            = link_to edit_twitter_scheduler_path(schedule), id: 'edit_link' do
-              <i class='glyphicon glyphicon-pencil' title='Edit'></i>
+            - if schedule.scheduled?
+              = link_to edit_twitter_scheduler_path(schedule), id: 'edit_link' do
+                <i class='glyphicon glyphicon-pencil' title='Edit'></i>
           %td
             = link_to schedule, id: 'delete_link', method: :delete, data: { confirm: 'Are You Sure?'} do
               <i class='glyphicon glyphicon-trash' title='Delete'></i>

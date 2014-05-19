@@ -8,4 +8,5 @@
 
 .form-group
   = link_to 'Back', twitter_schedulers_path, class: 'btn btn-default'
-  = link_to 'Edit', edit_twitter_scheduler_path(@twitter_scheduler), class: 'btn btn-default'
+  - if @twitter_scheduler.scheduled?
+    = link_to 'Edit', edit_twitter_scheduler_path(@twitter_scheduler), class: 'btn btn-default'
