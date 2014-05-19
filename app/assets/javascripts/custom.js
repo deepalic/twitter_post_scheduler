@@ -1,7 +1,29 @@
 $(document).ready(function(){
+  var d = new Date();
+  var time = d.getHours() + ":" + d.getMinutes();
   $('#twitter_scheduler_form').validationEngine();
+
+  var logic = function(currentDateTime) {
+    console.log('** logic');
+    console.log(currentDateTime.getDate());
+    if (currentDateTime.getDate() == new Date().getDate()){
+      this.setOptions({
+        minDate: 0,
+        minTime: time,
+        step: 5
+      });
+    }else{
+      this.setOptions({
+        minDate: 0,
+        minTime: '00:00',
+        step: 5
+      });
+    }
+  }
+
   $('#schedule_at').datetimepicker({
-    step: 5
+    onChangeDateTime:logic,
+    onShow: logic
   });
 
   // Set limit to enter characters in post_text textarea of
