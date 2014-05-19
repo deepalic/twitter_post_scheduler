@@ -26,6 +26,16 @@
               = link_to 'Sign In With Twitter', '/auth/twitter'
   .container
     .starter-template
+      - if flash.present?
+        - flash.each do |name, msg|
+          - if (name.to_s == 'notice') || (name.to_s == 'alert')
+            - flash_class = 'alert-warning'
+          - elsif name.to_s == 'error'
+            - flash_class = 'alert-danger'
+          - elsif name.to_s == 'success'
+            - flash_class = ' alert-success'
+
+          = content_tag :div, msg, :class => "alert #{flash_class}", :id => 'flash' if msg.present?
       = yield
 %hr/
 #footer
