@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  def authenticate_user
+    unless current_user
+      redirect_to root_path,
+                  flash: { error: 'You need to sign in first !' }
+    end
+  end
 end
