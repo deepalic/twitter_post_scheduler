@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
     user_hash = generate_user_hash(auth_hash)
     @user = User.find_or_create_from_user_hash(user_hash)
     session[:user_id] = @user.u_id
-    redirect_to twitter_schedulers_path
+    redirect_to twitter_schedulers_path,
+                flash: { success: 'Sign in successfully!' }
   end
 
   def generate_user_hash(auth_hash)
