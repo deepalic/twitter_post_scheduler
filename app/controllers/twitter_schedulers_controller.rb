@@ -1,6 +1,7 @@
 require 'twitter'
 # Twitter scheduler controller
 class TwitterSchedulersController < ApplicationController
+  before_filter :authenticate_user
   before_filter :set_twitter_scheduler, only: [:show, :edit, :update, :destroy]
   def index
     @twitter_schedulers = current_user.twitter_schedulers
