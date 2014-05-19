@@ -9,3 +9,8 @@ body{
 .tweet-details{
   float: right;
 }
+
+#tweets, #twitter_scheduler{
+  height: 473px;
+  overflow: scroll;
+}
