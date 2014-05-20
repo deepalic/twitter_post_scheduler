@@ -5,6 +5,11 @@
   %tr
     %td Schedule At
     %td= @twitter_scheduler.schedule_at
+  - if @twitter_scheduler.photo.present?
+    %tr
+      %td Photo
+      %td
+        = image_tag @twitter_scheduler.photo.url
 
 .form-group
   = link_to 'Back', twitter_schedulers_path, class: 'btn btn-default'
