@@ -4,6 +4,13 @@ class TwitterScheduler < ActiveRecord::Base
   validates_presence_of :post_text
   validates_presence_of :schedule_at
 
+  has_attached_file :photo, styles: { medium: '300x300>', thumb: '100x100>' },
+                            url: '/:attachment/:id/:style/:basename.:extension',
+                            path: ':rails_root/public/:attachment/:id/:style/:basename.:extension',
+                            use_timestamp: false
+
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
+
   state_machine :status, initial: :scheduled do
     event :success do
       transition [:scheduled] => :success
