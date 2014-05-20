@@ -45,6 +45,7 @@ gem 'whenever', require: false
 
 gem 'state_machine'
 gem 'rails_autolink'
+gem 'paperclip', '~> 4.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
