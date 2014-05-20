@@ -14,3 +14,8 @@ body{
   height: 473px;
   overflow: scroll;
 }
+
+.tweet-image{
+  margin-left: 24%;
+  margin-top: -3%;
+}
