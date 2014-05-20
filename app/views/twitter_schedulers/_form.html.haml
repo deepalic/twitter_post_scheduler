@@ -4,14 +4,19 @@
     .col-sm-10
       = f.text_area :post_text, class: 'form-control validate[required] message'
       %span.countdown
+
   .form-group
     = f.label :schedule_at, 'Schedule Post At', class: 'col-sm-2 control-label'
     .col-sm-10
       = f.text_field :schedule_at, class: 'form-control validate[required]', id: 'schedule_at'
+
   .form-group
     = f.label :photo, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.file_field :photo
+      - if @twitter_scheduler.photo.present?
+        = image_tag @twitter_scheduler.photo.url(:thumb), class: 'tweet-image'
+
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit 'Save', class: 'btn btn-default'
