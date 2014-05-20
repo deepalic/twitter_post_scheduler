@@ -17,7 +17,13 @@ namespace :blog_application do
             config.access_token        = user.auth_token
             config.access_token_secret = user.auth_secret
           end
-          client.update("#{twitter_post.post_text}")
+          if twitter_post.photo.present?
+            url = "#{Rails.root}/public#{twitter_post.photo.url}"
+            client.update_with_media("#{twitter_post.post_text}",
+                                     File.new(url))
+          else
+            client.update("#{twitter_post.post_text}")
+          end
           twitter_post.success!
         rescue
           twitter_post.failed!
