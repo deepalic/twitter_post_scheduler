@@ -4,8 +4,6 @@ $(document).ready(function(){
   $('#twitter_scheduler_form').validationEngine();
 
   var logic = function(currentDateTime) {
-    console.log('** logic');
-    console.log(currentDateTime.getDate());
     if (currentDateTime.getDate() == new Date().getDate()){
       this.setOptions({
         minDate: 0,
