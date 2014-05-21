@@ -5,8 +5,8 @@ namespace :tweet_scheduling do
     current_date = current_time.localtime
     current_date = current_date.strftime('%Y-%m-%d %H:%M')
 
-    @twitter_posts = TwitterScheduler.where(schedule_at: current_date,
-                                            status: 'scheduled')
+    @twitter_posts = TwitterScheduler.where('schedule_at <= ? AND status = ?',
+                                            current_date, 'scheduled')
     if @twitter_posts.present?
       @twitter_posts.each do |twitter_post|
         user = twitter_post.user
