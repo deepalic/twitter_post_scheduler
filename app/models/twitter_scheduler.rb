@@ -2,6 +2,7 @@
 class TwitterScheduler < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :post_text
+  validates :post_text, length: { maximum: 140 }
   validates_presence_of :schedule_at
 
   has_attached_file :photo, styles: { medium: '300x300>', thumb: '100x100>' },
