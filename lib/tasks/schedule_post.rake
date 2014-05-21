@@ -1,4 +1,4 @@
-namespace :blog_application do
+namespace :tweet_scheduling do
   desc 'TODO'
   task schedule_post: :environment do
     current_time = Time.now
