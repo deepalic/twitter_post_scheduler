@@ -5,6 +5,9 @@
   %tr
     %td Schedule At
     %td= @twitter_scheduler.schedule_at
+  %tr
+    %td Status
+    %td= @twitter_scheduler.status.humanize
   - if @twitter_scheduler.photo.present?
     %tr
       %td Photo
