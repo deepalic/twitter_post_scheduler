@@ -6,6 +6,7 @@
       %tr
         %th Post Text
         %th Schedule At
+        %th Status
         %th
         %th
         %th
@@ -13,6 +14,7 @@
         %tr
           %td= schedule.post_text
           %td= schedule.schedule_at
+          %td= schedule.status.humanize
           %td
             = link_to schedule, id: 'show_link' do
               <i class='glyphicon glyphicon-th' title='show'></i>
