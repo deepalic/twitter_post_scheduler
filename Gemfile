@@ -32,3 +32,4 @@ gem 'whenever', '0.9.2', require: false
 gem 'state_machine', '1.2.0'
 gem 'rails_autolink', '1.1.5'
 gem 'paperclip', '~> 4.1'
+gem 'timecop', '0.7.1'
