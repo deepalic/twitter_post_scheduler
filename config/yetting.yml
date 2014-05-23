@@ -1,0 +1,12 @@
+development:
+  consumer_key : 'APLSOAGWdBzZ62BGQGRXaiWIq'
+  consumer_secret: 'PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC'
+test:
+  consumer_key : 'APLSOAGWdBzZ62BGQGRXaiWIq'
+  consumer_secret: 'PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC'
+  auth_token: '1243267070-fANkac4xM040NlLQtWZcLvybbINvyu8GgICKdBX'
+  auth_secret: 'MFl6NIUakfOMiD8iiEibpeeVHMRaR2CbO8XjE7GiKCVOi'
+
+production:
+  consumer_key : 'APLSOAGWdBzZ62BGQGRXaiWIq'
+  consumer_secret: 'PQMWyLlzMgelkyLkNfH4hXvRQV3yWwPANtb05ofrlckj2JOpDC'
