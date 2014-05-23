@@ -33,3 +33,7 @@ gem 'state_machine', '1.2.0'
 gem 'rails_autolink', '1.1.5'
 gem 'paperclip', '~> 4.1'
 gem 'timecop', '0.7.1'
+
+# gem for heroku
+gem 'rails_12factor', group: :production
+ruby '2.1.0'
