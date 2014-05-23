@@ -15,18 +15,18 @@ gem 'spring',        group: :development
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'launchy', '2.4.2'
+  gem 'factory_girl_rails', '4.4.1'
+  gem 'fakeweb', '~> 1.3'
+  gem 'capybara', '2.2.1'
 end
-gem 'capybara', '2.2.1', group: :test
 
 gem 'haml', '4.0.5'
 gem 'omniauth', '1.2.1'
 gem 'omniauth-twitter', '1.0.1'
 gem 'twitter', '5.8.0'
 gem 'rest-client', '1.6.7'
-gem 'launchy', '2.4.2'
-gem 'factory_girl_rails', '4.4.1'
 gem 'yettings', '0.1.1'
-gem 'fakeweb', '~> 1.3', group: :test
 gem 'whenever', '0.9.2', require: false
 
 gem 'state_machine', '1.2.0'
