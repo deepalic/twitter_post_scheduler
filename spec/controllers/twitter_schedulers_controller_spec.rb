@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe TwitterSchedulersController do
+  before do
+    @user = current_user
+  end
   # Spec for index action
   describe 'index action' do
     it 'respond successfully with http 200 code' do
@@ -10,12 +13,13 @@ describe TwitterSchedulersController do
     end
 
     it 'should display twitter schedulers list' do
-      @twitter_schedulers = FactoryGirl.create(:twitter_scheduler)
+      @twitter_schedulers = TwitterScheduler.create(post_text: 'mytext',
+                                                    schedule_at: '2014-05-13 16:42:33',
+                                                    user_id: @user.id)
       get :index
       expect(assigns(:twitter_schedulers)).to match_array([@twitter_schedulers])
       response.should render_template(:index)
     end
-
   end
 
   # Spec for new action
