@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe 'show action' do
+  before do
+    current_user
+  end
   it 'displays the scheduler post text' do
     @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
     visit twitter_scheduler_path(@twitter_scheduler)

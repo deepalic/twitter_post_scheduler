@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'new action' do
+  before do
+    current_user
+  end
+
   it 'page should contain add schedule link' do
     visit twitter_schedulers_path
     save_and_open_page
