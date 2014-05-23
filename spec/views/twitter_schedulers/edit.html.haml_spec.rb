@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe 'edit action' do
+  before do
+    current_user
+  end
+
   it 'Should open edit page fill the form fields' do
     # given
     @twitter_scheduler = FactoryGirl.create(:twitter_scheduler)
@@ -13,7 +17,7 @@ describe 'edit action' do
     page.current_path.should eq("/twitter_schedulers/#{@twitter_scheduler.id}/edit")
     page.html.should include('Edit Twitter Scheduler')
     find_field('twitter_scheduler[post_text]').value.should eq(@twitter_scheduler.post_text.to_s)
-    find_field('twitter_scheduler[schedule_at]').value.should eq(@twitter_scheduler.schedule_at.to_s)
+    find_field('twitter_scheduler[schedule_at]').value.should eq(@twitter_scheduler.schedule_at.strftime('%Y-%m-%d %H:%M:%S'))
     find_button('Save')
 
     # when
