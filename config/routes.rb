@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :twitter_schedulers
+  resources :twitter_schedulers do
+    collection do
+      get 'manage_scheduling'
+      get 'start_scheduling'
+    end
+  end
   resources :home
   resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
