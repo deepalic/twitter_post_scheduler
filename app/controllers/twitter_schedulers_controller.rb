@@ -1,4 +1,7 @@
 require 'twitter'
+require 'rake'
+Rake::Task.clear
+BlogApplication::Application.load_tasks
 # Twitter scheduler controller
 class TwitterSchedulersController < ApplicationController
   before_filter :authenticate_user
@@ -39,6 +42,15 @@ class TwitterSchedulersController < ApplicationController
     if @twitter_scheduler.destroy
       redirect_to twitter_schedulers_path
     end
+  end
+
+  def manage_scheduling
+  end
+
+  def start_scheduling
+    Rake::Task['tweet_scheduling:schedule_post'].invoke
+    redirect_to manage_scheduling_twitter_schedulers_path,
+                flash: { success: 'Tweet Scheduling Started Successfully' }
   end
 
   private
