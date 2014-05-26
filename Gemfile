@@ -13,7 +13,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 
-group :development, :test do
+group :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'launchy', '2.4.2'
   gem 'factory_girl_rails', '4.4.1'
