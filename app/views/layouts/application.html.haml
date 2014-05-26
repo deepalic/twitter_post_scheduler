@@ -17,6 +17,8 @@
           - if current_user
             %li
               = link_to 'Schedule Tweet', twitter_schedulers_path
+            %li
+              = link_to 'Manage Scheduling', manage_scheduling_twitter_schedulers_path
         %ul.nav.navbar-nav.navbar-right
           - if current_user
             %li.active
